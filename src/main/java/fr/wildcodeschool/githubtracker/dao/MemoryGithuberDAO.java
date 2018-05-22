@@ -54,7 +54,7 @@ public class MemoryGithuberDAO implements GithuberDAO {
     @PostConstruct
     private void initGithubers(){
         List<String> logins = new ArrayList<>();
-        Collections.addAll(logins, "loloof64", "sebaurel", "fabmars", "kobanogit", "mbentejac");
+        Collections.addAll(logins, "fiongogo", "sebaurel", "fabmars", "kobanogit", "mbentejac");
 
         for (String currLogin : logins){
             Githuber currentGithuber = parseGithuber(currLogin);

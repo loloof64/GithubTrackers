@@ -22,4 +22,10 @@ public class GithubersServlet extends HttpServlet {
         req.setAttribute("listOfGithubers", githubersService.getAllGithubers());
         req.getRequestDispatcher("/githubers.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("listOfGithubers", githubersService.getAllGithubers());
+        req.getRequestDispatcher("/githubers.jsp").forward(req, resp);
+    }
 }
