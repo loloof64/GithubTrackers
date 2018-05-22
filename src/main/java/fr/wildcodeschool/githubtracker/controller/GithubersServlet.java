@@ -3,6 +3,7 @@ package fr.wildcodeschool.githubtracker.controller;
 import fr.wildcodeschool.githubtracker.dao.DumbGithuberDAO;
 import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
 import fr.wildcodeschool.githubtracker.model.Githuber;
+import fr.wildcodeschool.githubtracker.service.GithubersService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,16 +17,16 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/githubers"})
 public class GithubersServlet extends HttpServlet {
 
-    private GithuberDAO githuberDAO;
+    private GithubersService githubersService;
 
     @Override
     public void init() throws ServletException {
-        githuberDAO = new DumbGithuberDAO();
+        githubersService = new GithubersService(new DumbGithuberDAO());
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("listOfGithubers", githuberDAO.getGithubers());
+        req.setAttribute("listOfGithubers", githubersService.getAllGithubers());
         req.getRequestDispatcher("/githubers.jsp").forward(req, resp);
     }
 }
