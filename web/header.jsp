@@ -28,7 +28,7 @@
                     <a class="nav-link" href="githubers">Githubers list</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tracker_form.jsp">Github tracker</a>
+                    <a class="nav-link" href="track.jsp">Github tracker</a>
                 </li>
             </ul>
         </div>
