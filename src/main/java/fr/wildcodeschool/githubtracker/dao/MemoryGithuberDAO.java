@@ -7,6 +7,7 @@ import fr.wildcodeschool.githubtracker.model.Githuber;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,6 +17,9 @@ import java.util.*;
 public class MemoryGithuberDAO implements GithuberDAO {
 
     private Map<String, Githuber> githubers = new HashMap<>();
+
+    @Inject
+    private ObjectMapper objectMapper;
 
     @Override
     public List<Githuber> getGithubers() {
@@ -30,8 +34,7 @@ public class MemoryGithuberDAO implements GithuberDAO {
     public Githuber parseGithuber(String login){
         try {
             URL requestURL = new URL("https://api.github.com/users/"+login);
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(requestURL, Githuber.class);
+            return objectMapper.readValue(requestURL, Githuber.class);
         }
         catch (MalformedURLException ex) {
             ex.printStackTrace();
