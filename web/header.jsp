@@ -22,10 +22,10 @@
         <div class="navbar navbar-expand-lg navbar-light bg-light">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.jsp">Home</a>
+                    <a class="nav-link" href="index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/githubers">Githubers list</a>
+                    <a class="nav-link" href="githubers">Githubers list</a>
                 </li>
             </ul>
         </div>
