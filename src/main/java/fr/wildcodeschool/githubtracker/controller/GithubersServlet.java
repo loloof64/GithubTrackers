@@ -5,6 +5,7 @@ import fr.wildcodeschool.githubtracker.dao.GithuberDAO;
 import fr.wildcodeschool.githubtracker.model.Githuber;
 import fr.wildcodeschool.githubtracker.service.GithubersService;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +18,9 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/githubers"})
 public class GithubersServlet extends HttpServlet {
 
+    @Inject
     private GithubersService githubersService;
 
-    @Override
-    public void init() throws ServletException {
-        githubersService = new GithubersService(new DumbGithuberDAO());
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
