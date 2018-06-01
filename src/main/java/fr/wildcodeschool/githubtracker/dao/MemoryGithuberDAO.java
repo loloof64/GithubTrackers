@@ -11,6 +11,10 @@ import java.util.*;
 @InMemory
 public class MemoryGithuberDAO implements GithuberDAO {
 
+    private static final String localBase = "jdbc:mysql://localhost:3306/githubtracker";
+    private static final String USER = "admin";
+    private static final String PASS = "admin";
+
     private Map<String, Githuber> githubers = new HashMap<>();
 
     @Inject
